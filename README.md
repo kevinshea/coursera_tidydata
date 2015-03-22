@@ -19,7 +19,7 @@ We also assume that you're working directory is the directory containing run_ana
 
 To execute this script after loading, use the command run_analysis()
 
-######### Data Inputs
+##### Data Inputs
 Assumes you're running from the UCI HAR Dataset folder. For further information on what's in these files see CodeBook.md
   * ./test/y_test.txt
   * ./test/X_test.txt
@@ -30,17 +30,18 @@ Assumes you're running from the UCI HAR Dataset folder. For further information 
   * features.txt
   * activity_labels.txt
 
-######### Data Output
+##### Data Output
 Writes to working directory, a tab-separated .txt file
   * my_tidy_data_summary.txt
 
-######### Details and Assumptions of Script Actions
+##### Details and Assumptions of Script Actions
 
-########### Goal 1 - Merge the training and test data sets
+###### Goal 1 - Merge the training and test data sets
   * Function - create_data_file
 
   Combine the 3 test files into one data set such that we create a set of the following layout, named test_data
-  | subject id | activity | measurement 1 | measurement 2 | ...
+
+  | subject id | activity | measurement 1 | measurement 2 | ... |
 
   In other words
     * column 1: subject_test.txt
@@ -52,7 +53,7 @@ Writes to working directory, a tab-separated .txt file
   Now, we have two data sets test_data and training_data. We now rbind those two sets together to form a master data set of har_data with 10,299 observations.
 
 
-###########  Goal 2 - Extracts only the measurements on the mean and standard deviation for each measurement.
+###### Goal 2 - Extracts only the measurements on the mean and standard deviation for each measurement.
 
   * Function - subset_mean_and_stdev
 
@@ -65,7 +66,7 @@ Writes to working directory, a tab-separated .txt file
   Mean is a little more complicated as we have measurements that contain mean(), meanFreq(), and all of our angle measurements in some way in "mean" in the name.
   Because this is a judgment call we're going to include only those that have mean() (i.e. only the first type described). Why only those? Parallelism - std() and mean()
 
-###########  Goal 4. Appropriately labels the data set with descriptive variable names.
+######  Goal 4. Appropriately labels the data set with descriptive variable names.
 
   * Function - name_variables
 
@@ -81,7 +82,7 @@ Writes to working directory, a tab-separated .txt file
 
   Note: In the future, it would probably be a good idea to eliminate "()" from the variable names, as we probably won't be able to use syntax like "my_data$tBodyAcc-mean()-Y" without R thinking that's a function call.
 
-###########  Goal 3. Uses descriptive activity names to name the activities in the data set
+######  Goal 3. Uses descriptive activity names to name the activities in the data set
 
   * Function - rename_activities
 
@@ -95,7 +96,7 @@ Writes to working directory, a tab-separated .txt file
 
   We can use merge for this
 
-###########  Goal 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+######  Goal 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
   * Function - mean_by_activity_and_subject
 
