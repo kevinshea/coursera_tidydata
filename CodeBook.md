@@ -1,13 +1,13 @@
-#### Description of UCI HAR Dataset
+### Description of UCI HAR Dataset
 
 None of the original data files from the UCI dataset were altered prior to use in the run_anlysis.R script.
 
 For manipulations performed on the data set to conduct analysis, please see README.md for description of run_analysis.R
 
 
-##### Understanding the data files used for this analysis
+#### Understanding the data files used for this analysis
 
-###### Test and Training
+##### Test and Training
 
 What's the difference between Test and Training?
   Splits the 30 volunteers into 2 groups.
@@ -41,7 +41,7 @@ What's the difference between Test and Training?
 
   A description of the measurements captured by the smartphone, as provided by UCI.
 
-**/test**
+######/test
 
 **y_test.txt**
 
@@ -71,7 +71,7 @@ What's the difference between Test and Training?
     * Column 560 angle(Y,gravityMean)
     * Column 561 angle(Z,gravityMean)
 
-**/train**
+######/train
 
 Files are structured the same as test dataset. As described above the volunteers were split
 into two groups. These files contain the same data as test, but for a different set of people.
